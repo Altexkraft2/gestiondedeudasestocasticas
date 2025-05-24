@@ -255,64 +255,50 @@
         <!-- Tarjeta 2: Arquitectura del Sistema -->
         <article class="card">
             <div class="card-content">
-                <h3>Arquitectura del Sistema: Capas y Flujos de Datos</h3>
+                <h3>Metodología Scrum:</h3>
                 <div class="neon-line"></div>
+                <p>La implementación de un sistema con componentes técnicamente complejos —como la resolución de ecuaciones diferenciales estocásticas— demanda un marco de trabajo flexible que fomente la iteración y la colaboración interdisciplinaria. Aquí,
+                    la metodología Scrum se configura como el eje organizativo. Como responsable del proyecto, estructuré los roles clave: un Product Owner para priorizar funcionalidades críticas (e.g., módulos de simulación), un Scrum Master para eliminar obstáculos técnicos (e.g., integración entre Vue.js y APIs de C#),
+                    y un equipo de desarrollo con habilidades complementarias (desarrolladores full-stack, matemáticos y expertos en bases de datos). Los sprints se centraron en entregar incrementos funcionales, como la construcción de un servicio backend para ejecutar simulaciones de Monte Carlo o la creación de dashboards interactivos en Vue.js.
+                    Las ceremonias de Scrum —como las daily standups y *sprint reviews— facilitaron la alineación entre el equipo técnico y los stakeholders financieros, asegurando que los modelos matemáticos reflejaran requisitos reales del negocio.</p>
                 
-                <h4> Base de Datos (PostgreSQL)</h4>
-                <ul>
-                    <li>Datos estructurados con índices B-tree</li>
-                    <li>Almacenamiento JSONB para resultados de simulaciones</li>
-                    <li>Particionamiento por fechas y rangos de deuda</li>
-                </ul>
-
-                <h4> Backend (C#)</h4>
-                <ul>
-                    <li>Motor de simulación con algoritmos Euler-Maruyama/Milstein</li>
-                    <li>API REST con endpoints para simulaciones</li>
-                    <li>Cálculo de métricas de riesgo (VaR, Expected Shortfall)</li>
-                </ul>
-
-                <h4> Frontend (Vue.js)</h4>
-                <ul>
-                    <li>Visualización de incertidumbre con gráficos de densidad</li>
-                    <li>Heatmaps para correlación de variables</li>
-                    <li>Controles dinámicos para ajuste de parámetros</li>
-                </ul>
-                <small>Categoría: Arquitectura del Sistema</small>
             </div>
         </article>
 
         <!-- Tarjeta 3: Metodología Scrum -->
         <article class="card">
             <div class="card-content">
-                <h3>Metodología Scrum Adaptada</h3>
+                <h3>Implementación de Modelos Estocásticos en el Backend</h3>
                 <div class="neon-line"></div>
-                
-                <h4> Roles Multidisciplinarios</h4>
-                <ul>
-                    <li>Product Owner: Priorización por impacto financiero</li>
-                    <li>Scrum Master: Facilitación técnico-matemática</li>
-                    <li>Equipo: Científicos de datos + Ingenieros</li>
-                </ul>
+               <p>En el backend, la resolución de ecuaciones estocásticas se abordó mediante métodos numéricos implementados en C#. Por ejemplo, para simular trayectorias de tasas de interés, 
+                   adapté el modelo de Vasicek, utilizando el método de Euler-Maruyama para discretizar la ecuación diferencial. Librerías como MathNet.Numerics facilitaron operaciones matriciales y generación de números aleatorios con distribuciones específicas 
+                   (normal, Poisson). Cada simulación genera un conjunto de trayectorias que se almacenan en PostgreSQL, junto con metadatos (usuario, fecha, parámetros) para auditoría y reutilización. Para garantizar precisión, incorporé validaciones estadísticas, 
+                   comparando medias y varianzas de las simulaciones con valores teóricos esperados.
 
-                <h4> Dinámicas de Sprint</h4>
-                <ul>
-                    <li>Planning con enfoque en riesgo matemático</li>
-                    <li>Entregas parciales con validación numérica</li>
-                    <li>Reviews con stakeholders financieros</li>
-                </ul>
-
-                <h4> Gestión de Complejidad</h4>
-                <ul>
-                    <li>Documentación detallada de modelos</li>
-                    <li>Pruebas de convergencia y estrés</li>
-                    <li>Versionamiento de modelos para rollbacks</li>
-                </ul>
-                <small>Categoría: Metodología Ágil</small>
+</p>
             </div>
         </article>
 
         <!-- Tarjeta 4: Conclusión -->
+
+        <article class="card">
+            <div class="card-content">
+                <h3>Arquitectura del Sistema: Componentes y Flujo de Datos</h3>
+                <div class="neon-line"></div>
+                <p>El sistema se estructura en tres capas principales, diseñadas para operar de manera desacoplada pero integrada:
+
+Frontend (Vue.js): Desarrollé interfaces intuitivas que permiten a los usuarios definir parámetros de simulación (volatilidad, horizontes temporales) y visualizar resultados mediante gráficos interactivos. Librerías como Chart.js se integraron para representar distribuciones de probabilidad y trayectorias estocásticas, mientras que Vue Router gestionó la navegación entre módulos (gestión de deudas, informes de riesgo).
+
+Backend (C#): Implementé servicios RESTful en .NET Core encargados de la lógica de negocio. Esto incluye algoritmos para resolver ecuaciones estocásticas, validación de entradas y gestión de reglas financieras (cálculo de intereses, penalizaciones). Para manejar la carga computacional, utilicé paralelización mediante la Task Parallel Library (TPL), optimizando simulaciones que requieren miles de iteraciones.
+
+Base de Datos (PostgreSQL): Diseñé un esquema relacional para almacenar tanto datos transaccionales (deudas, pagos) como resultados de simulaciones. Tablas como risk_simulations almacenan series temporales en formato JSONB, mientras que índices BRIN mejoran el rendimiento en consultas sobre rangos temporales. Además, particioné tablas para optimizar el manejo de datos históricos.
+
+La comunicación entre capas se realiza mediante APIs REST, garantizando escalabilidad y facilitando futuras integraciones con terceros.
+
+</p>
+                
+            </div>
+        </article>
        
     </main>
 
